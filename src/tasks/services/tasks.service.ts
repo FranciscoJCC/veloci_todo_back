@@ -1,19 +1,12 @@
 import { Model } from 'mongoose';
 import { Injectable, NotFoundException, Inject } from '@nestjs/common';
 import { Task } from './../entities/task.entity';
-import { Db } from 'mongodb';
 import { CreateTaskDto, UpdateTaskDto, FilterTaskDto } from './../dtos/tasks.dtos';
 
 @Injectable()
 export class TasksService {
 
-  constructor(
-    @Inject('API_KEY') private apiKey: string,
-    @Inject('DB_MONGO') private dbMongo: Db,
-    @Inject('TASK_MODEL') private taskModel: Model<Task>,
-  ){
-    console.log(apiKey);
-  }
+  constructor(@Inject('TASK_MODEL') private taskModel: Model<Task>,){}
 
   async findAll(params: FilterTaskDto) {
 
