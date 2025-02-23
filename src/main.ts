@@ -11,6 +11,7 @@ async function bootstrap() {
       enableImplicitConversion: true // Convierte tipos de datos de query a enteros, booleanos, etc
     }
   }));
+  app.enableCors();
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
