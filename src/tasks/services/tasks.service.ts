@@ -15,18 +15,13 @@ export class TasksService {
     console.log(apiKey);
   }
 
-  private counterId = 1;
-  /* private tasks: Task[] = [
-    { id: 1, title: 'Tarea 1', completed: false, createdAt: new Date() },
-  ]; */
-
   async findAll(params: FilterTaskDto) {
 
     const { limit = 10, offset = 0 } = params;
 
     const [totalElements, tasks] = await Promise.all([
       this.taskModel.countDocuments(),
-      this.taskModel.find().skip(offset * limit).limit(limit).exec()
+      this.taskModel.find().skip(offset).limit(limit).sort({ createdAt: -1 }).exec()
     ])
 
     const totalPages = (Math.ceil((totalElements / limit))) || 1;
