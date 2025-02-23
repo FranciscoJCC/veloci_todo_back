@@ -1,5 +1,4 @@
 import { Module, Global } from '@nestjs/common';
-import { MongoClient } from 'mongodb';
 import { databaseProviders } from './database.provider';
 
 
