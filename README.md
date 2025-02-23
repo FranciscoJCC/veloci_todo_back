@@ -28,3 +28,11 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+### Componentes
+
+- **Schemas**: Definen la estructura de los datos que se almacenan y se validan en la aplicación.
+- **DTOs (Data Transfer Objects)**: Objetos que se utilizan para transferir datos entre diferentes partes de la aplicación.
+- **Entities**: Representaciones de las tablas de la base de datos en forma de clases.
+- **Controllers**: Manejan las solicitudes HTTP y delegan la lógica de negocio a los servicios.
+- **Services**: Contienen la lógica de negocio y se comunican con los repositorios para acceder a los datos.
