@@ -11,7 +11,7 @@ import {
   HttpCode,
 } from '@nestjs/common';
 
-import { MongoIdPipe } from './../../../src/common/mongo-id/mongo-id.pipe';
+import { MongoIdPipe } from './../../common/mongo-id/mongo-id.pipe';
 import { CreateTaskDto, UpdateTaskDto, FilterTaskDto } from '../dtos/tasks.dtos';
 
 import { TasksService } from './../services/tasks.service';
