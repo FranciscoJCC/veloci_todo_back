@@ -12,14 +12,15 @@ export class TasksService {
 
     const { limit = 10, offset = 0 } = params;
 
-    const [totalElements, tasks] = await Promise.all([
+    const [totalElements, tasks, completedTasks] = await Promise.all([
       this.taskModel.countDocuments(),
-      this.taskModel.find().skip(offset).limit(limit).sort({ createdAt: -1 }).exec()
+      this.taskModel.find().skip(offset).limit(limit).sort({ createdAt: -1 }).exec(),
+      this.taskModel.find({ completed: true }).countDocuments()
     ])
 
     const totalPages = (Math.ceil((totalElements / limit))) || 1;
 
-    return { totalPages, totalElements, tasks };
+    return { totalPages, totalElements, completedTasks, tasks };
   }
 
   async findOne(id: string) {
